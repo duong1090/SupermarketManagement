@@ -1,0 +1,83 @@
+﻿@model IEnumerable<SupermarketManagement.Models.Customer>
+@{
+    ViewData["Title"] = "Index";
+
+}
+
+
+
+<br />
+<br />
+
+
+<div class="row">
+    <div class="col-6">
+        <h2 class="text-info">Customer</h2>
+    </div>
+</div>
+
+<br />
+<div>
+    <form asp-controller="Customers asp-action="Index" method="get">
+        <p>
+            Name: <input type="text" name="SearchName">
+            <input hidden type="submit" value="Filter" />
+            ID: <input type="text" name="SearchID">
+            <input hidden type="submit" value="Filter" />
+        </p>
+    </form>
+    <table class="table table-striped border">
+        <tr class="table-info">
+            <th>
+                @Html.DisplayNameFor(m => m.FullName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(m => m.PhoneNumber)
+            </th>
+            <th>
+                @Html.DisplayNameFor(m => m.Sex)
+            </th>
+            <th>
+                @Html.DisplayNameFor(m => m.Point)
+            </th>
+            <th>
+                @Html.DisplayNameFor(m => m.Rate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(m => m.BirthDay)
+            </th>
+            <th>
+                @Html.DisplayNameFor(m => m.Address)
+            </th>         
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(m => item.FullName)
+                </td>
+                <td>
+                    @Html.DisplayFor(m => item.PhoneNumber)
+                </td>
+                <td>
+                    @Html.DisplayFor(m => item.Sex)
+                </td>
+                <td>
+                    @Html.DisplayFor(m => item.Point)
+                </td>
+                <td>
+                    @Html.DisplayFor(m => item.Rate)
+                </td>
+                <td>
+                    @Html.DisplayFor(m => item.BirthDay)
+                </td>
+                <td>
+                    @Html.DisplayFor(m => item.Address)
+                </td>
+               
+            </tr>
+        }
+    </table>
+</div>
+

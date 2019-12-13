@@ -1,0 +1,84 @@
+﻿@model SupermarketManagement.Models.ViewModel.ProductsViewModel
+@using SupermarketManagement.Extensions
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<br />
+<h2 class="text-info">Edit Product</h2>
+<form method="post" asp-action="Edit">
+    <div class="p-4 border rounded">
+        <input hidden asp-for="Products.ProductID" />
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+        <div class="col-8">
+            <div class="form-group row">
+                <div class="col-4">
+                    <label asp-for="Products.Name"></label>
+                </div>
+                <div class="col-8">
+                    <input asp-for="Products.Name" class="form-control" />
+                </div>
+                <span asp-validation-for="Products.Name" class="text-danger"></span>
+            </div>
+            <div class="form-group row">
+                <div class="col-4">
+                    <label asp-for="Products.Price"></label>
+                </div>
+                <div class="col-8">
+                    <input asp-for="Products.Price" class="form-control" />
+                </div>
+                <span asp-validation-for="Products.Price" class="text-danger"></span>
+            </div>
+            <div class="form-group row">
+                <div class="col-4">
+                    <label asp-for="Products.Status"></label>
+                </div>
+                <div class="col-8">
+                    <input type="checkbox" asp-for="Products.Status" />
+                </div>
+            </div>
+            <div class="form-group row">
+                <div class="col-4">
+                    <label asp-for="Products.Category"></label>
+                </div>
+                <div class="col-8">
+                    <select asp-for="@Model.Products.CategoryID" asp-items="Model.Categories.ToSelectListItem(Model.Products.CategoryID)" class="form-control"></select>
+                </div>
+            </div>
+            <div class="form-group row">
+                <div class="col-4">
+                    <label asp-for="Products.Amount"></label>
+                </div>
+                <div class="col-8">
+                    <input asp-for="Products.Amount" class="form-control" />
+                </div>
+                <span asp-validation-for="Products.Amount" class="text-danger"></span>
+            </div>
+            <div class="form-group row">
+                <div class="col-4">
+                    <label asp-for="Products.Producer"></label>
+                </div>
+                <div class="col-8">
+                    <input asp-for="Products.Producer" class="form-control" />
+                </div>
+                <span asp-validation-for="Products.Producer" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="col-1">
+
+        </div>
+        <div class="col-3">
+
+        </div>
+        <br\>
+            <div class="form-group">
+                <input type="submit" class="btn btn-primary" value="Update" />
+                <a asp-action="Index" class="btn btn-success">Back to List</a>
+            </div>
+    </div>
+</form>
+
+@section Scripts{
+    @{ await Html.RenderPartialAsync("_ValidationScriptsPartial"); }
+}
+

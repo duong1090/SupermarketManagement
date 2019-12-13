@@ -1,0 +1,79 @@
+﻿@model SupermarketManagement.Models.ViewModel.CustomersViewModel
+@using SupermarketManagement.Extensions
+@{
+    ViewData["Title"] = "Delete";
+}
+
+<br />
+<h2 class="text-info">Delete Customer</h2>
+<form method="post" asp-action="Delete">
+    <div class="p-4 border rounded">
+        <input hidden asp-for="Customers.CustomerID" />
+        <div class="form-group row">
+            <div class="col-2">
+                <label asp-for="Customers.FullName"></label>
+            </div>
+            <div class="col-5">
+                <input asp-for="Customers.FullName" readonly class="form-control" />
+            </div>
+        </div>
+        <div class="form-group row">
+            <div class="col-2">
+                <label asp-for="Customers.PhoneNumber"></label>
+            </div>
+            <div class="col-5">
+                <input asp-for="Customers.PhoneNumber" readonly class="form-control" />
+            </div>
+        </div>
+        <div class="form-group row">
+            <div class="col-2">
+                <label asp-for="Customers.Sex"></label>
+            </div>
+            <div class="col-5">
+                <input asp-for="Customers.Sex" readonly class="form-control" />
+            </div>
+        </div>
+        <div class="form-group row">
+            <div class="col-2">
+                <label asp-for="Customers.Point"></label>
+            </div>
+            <div class="col-5">
+                <input asp-for="Customers.Point" readonly class="form-control" />
+            </div>
+        </div>
+        <div class="form-group row">
+            <div class="col-2">
+                <label asp-for="Customers.Rate"></label>
+            </div>
+            <div class="col-5">
+                <input asp-for="Customers.Rate" readonly class="form-control" />
+            </div>
+        </div>
+        <div class="form-group row">
+            <div class="col-2">
+                <label asp-for="Customers.BirthDay"></label>
+            </div>
+            <div class="col-5">
+                <input asp-for="Customers.BirthDay" readonly class="form-control" />
+            </div>
+        </div>
+        <div class="form-group row">
+            <div class="col-2">
+                <label asp-for="Customers.Address"></label>
+            </div>
+            <div class="col-5">
+                <input asp-for="Customers.Address" readonly class="form-control" />
+            </div>
+        </div>
+        <br\>
+            <div class="form-group">
+                <input type="submit" class="btn btn-danger" asp-route-id="@Model.Customers.CustomerID" value="Delete" />
+                <a asp-action="Index" class="btn btn-success">Back to List</a>
+            </div>
+    </div>
+</form>
+
+@section Scripts{
+    @{ await Html.RenderPartialAsync("_ValidationScriptsPartial"); }
+}
+

@@ -1,0 +1,53 @@
+﻿@model SupermarketManagement.Models.ViewModel.StatisticViewModel
+@{
+    ViewData["Title"] = "Index";
+}
+
+<br/>
+<br/>
+
+<div>
+    <div">
+        <table class="table table-striped border">
+            <tr class="table-info">
+                <th>
+                    @Html.DisplayNameFor(m => m.receipt_Detail.ProductID)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(m => m.receipt_Detail.Product.Name)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(m => m.receipt_Detail.Amount)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(m => m.receipt_Detail.ManufactureDate)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(m => m.receipt_Detail.ExpiryDate)
+                </th>
+            </tr>
+            @foreach (var item in Model.receipt_Details)
+            {
+        <tr>
+                <td>
+                    @Html.DisplayFor(a => item.ProductID)
+                </td>
+                <td>
+                    @Html.DisplayFor(a => item.Product.Name)
+                </td>
+                <td>
+                    @Html.DisplayFor(a => item.Amount)
+                </td>
+                <td>
+                    @Html.DisplayFor(a => item.ManufactureDate)
+                </td>
+                <td>
+                    @Html.DisplayFor(a => item.ExpiryDate)
+                </td>
+        </tr>
+            }
+        </table>
+    </div>
+
+</div>
+

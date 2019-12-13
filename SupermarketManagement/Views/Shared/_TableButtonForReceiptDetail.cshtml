@@ -1,0 +1,12 @@
+﻿@model int
+@{
+    ViewData["Title"] = "_TableButtonForReceiptDetail";
+}
+
+    <td style="width:150px">
+        <div class="btn-group" role="group">
+            <a type="button" class="btn btn-primary" href="@Url.Action("EditReceiptDetail/" +Model)">
+                <i class="fas fa-edit"></i>
+            </a>
+        </div>
+    </td>

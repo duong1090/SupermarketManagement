@@ -1,0 +1,90 @@
+﻿@model SupermarketManagement.Models.ViewModel.BillDetailsModel
+@{
+    ViewData["Title"] = "Create";
+}
+
+<br />
+<form method="post" asp-action="CreateBillDetail">
+    <div class="p-4 border rounded">
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+        <div class="form-group row">
+            <div class="col-2">
+                <label asp-for="bill_detail.ProductID"></label>
+            </div>
+            <div class="col-5">
+                <input id="ProductID" asp-for="bill_detail.ProductID" class="form-control" />
+            </div>
+            <span asp-validation-for="bill_detail.ProductID" class="text-danger"></span>
+        </div>
+        <div class="form-group row">
+            <div class="col-2">
+                <label asp-for="bill_detail.ProductAmount"></label>
+            </div>
+            <div class="col-5">
+                <input id="ProductAmount" asp-for="bill_detail.ProductAmount" class="form-control" />
+            </div>
+            <span asp-validation-for="bill_detail.ProductAmount" class="text-danger"></span>
+        </div>
+
+        <br\>
+            <div class="form-group">
+                <input type="submit" class="btn btn-primary" value="Create" id="button" />
+                <a asp-action="Index" class="btn btn-success">Back to List</a>
+            </div>
+    </div>
+</form>
+
+<div>
+
+    <table class="table table-striped border">
+        <tr class="table-info">
+            <th>
+                @Html.DisplayNameFor(m => m.bill_detail.ProductID)
+            </th>
+            <th>
+                @Html.DisplayNameFor(m => m.bill_details.LastOrDefault().Product.Name)
+            </th>
+            <th>
+                @Html.DisplayNameFor(m => m.bill_details.LastOrDefault().Product.Price)
+            </th>
+            <th>
+                @Html.DisplayNameFor(m => m.bill_detail.ProductAmount)
+            </th>
+            <th>
+                @Html.DisplayNameFor(m => m.bill_detail.TotalPrice)
+            </th>
+            <th></th>
+            <th></th>
+        </tr>
+
+        @foreach (var item in Model.bill_details)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(m => item.ProductID)
+                </td>
+                <td>
+                    @Html.DisplayFor(m => item.Product.Name)
+                </td>
+                <td>
+                    @Html.DisplayFor(m => item.Product.Price)
+                </td>
+                <td>
+                    @Html.DisplayFor(m => item.ProductAmount)
+                </td>
+                <td>
+                    @Html.DisplayFor(m => item.TotalPrice)
+                </td>
+                <td>
+                    <partial name="_TableButtonForBillDetail" model="item.Bill_DetailID" />
+                </td>
+            </tr>
+        }
+    </table>
+</div>       
+
+
+@section Scripts{
+    @{ await Html.RenderPartialAsync("_ValidationScriptsPartial"); }
+}
+

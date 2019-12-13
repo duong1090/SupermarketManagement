@@ -1,0 +1,93 @@
+﻿@model SupermarketManagement.Models.ViewModel.StaffsViewModel
+@using SupermarketManagement.Extensions
+@{
+    ViewData["Title"] = "Create";
+}
+
+<br />
+<h2 class="text-info">Create Staff</h2>
+<form method="post" enctype="multipart/form-data">
+    <div class="p-4 border rounded ">
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+        <div class="form-group row">
+            <div class="col-2">
+                <label asp-for="Staffs.FullName"></label>
+            </div>
+            <div class="col-5">
+                <input asp-for="Staffs.FullName" class="form-control" />
+            </div>
+            <span asp-validation-for="Staffs.FullName" class="text-danger"></span>
+        </div>
+        <div class="form-group row">
+            <div class="col-2">
+                <label asp-for="Staffs.Sex"></label>
+            </div>
+            <div class="col-5">
+                <input asp-for="Staffs.Sex" class="form-control" />
+            </div>
+            <span asp-validation-for="Staffs.Sex" class="text-danger"></span>
+        </div>
+        <div class="form-group row">
+            <div class="col-2">
+                <label asp-for="Staffs.Image"></label>
+            </div>
+            <div class="col-5">
+                <input type="file" name="files" class="form-control" />
+            </div>
+        </div>
+        <div class="form-group row">
+            <div class="col-2">
+                <label asp-for="Staffs.PhoneNumber"></label>
+            </div>
+            <div class="col-5">
+                <input asp-for="Staffs.PhoneNumber" class="form-control" />
+            </div>
+            <span asp-validation-for="Staffs.PhoneNumber" class="text-danger"></span>
+        </div>
+        <div class="form-group row">
+            <div class="col-2">
+                <label asp-for="Staffs.Role"></label>
+            </div>
+            <div class="col-5">
+                <select asp-for="@Model.Staffs.RoleID" asp-items="Model.Roles.ToSelectListItemStaff(Model.Staffs.RoleID)" class="form-control"></select>
+            </div>
+        </div>
+        <div class="form-group row">
+            <div class="col-2">
+                <label asp-for="Staffs.BirthDay"></label>
+            </div>
+            <div class="col-5">
+                <input asp-for="Staffs.BirthDay" class="form-control" />
+            </div>
+            <span asp-validation-for="Staffs.BirthDay" class="text-danger"></span>
+        </div>
+        <div class="form-group row">
+            <div class="col-2">
+                <label asp-for="Staffs.Address"></label>
+            </div>
+            <div class="col-5">
+                <input asp-for="Staffs.Address" class="form-control" />
+            </div>
+            <span asp-validation-for="Staffs.Address" class="text-danger"></span>
+        </div>
+        <div class="form-group row">
+            <div class="col-2">
+                <label asp-for="Staffs.Email"></label>
+            </div>
+            <div class="col-5">
+                <input asp-for="Staffs.Email" class="form-control" />
+            </div>
+            <span asp-validation-for="Staffs.Email" class="text-danger"></span>
+        </div>
+        <br\>
+            <div class="form-group">
+                <input type="submit" class="btn btn-primary" value="Create" />
+                <a asp-action="Index" class="btn btn-success">Back to List</a>
+            </div>
+    </div>
+</form>
+
+@section Scripts{
+    @{ await Html.RenderPartialAsync("_ValidationScriptsPartial"); }
+}
+

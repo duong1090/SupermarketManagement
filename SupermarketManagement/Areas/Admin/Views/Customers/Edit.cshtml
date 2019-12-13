@@ -1,0 +1,87 @@
+﻿@model SupermarketManagement.Models.ViewModel.CustomersViewModel
+@using SupermarketManagement.Extensions
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<br />
+<h2 class="text-info">Edit Customer</h2>
+<form method="post" asp-action="Edit">
+    <div class="p-4 border rounded">
+        <input hidden asp-for="Customers.CustomerID" />
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+        <div class="form-group row">
+            <div class="col-2">
+                <label asp-for="Customers.FullName"></label>
+            </div>
+            <div class="col-5">
+                <input asp-for="Customers.FullName" class="form-control" />
+            </div>
+            <span asp-validation-for="Customers.FullName" class="text-danger"></span>
+        </div>
+        <div class="form-group row">
+            <div class="col-2">
+                <label asp-for="Customers.PhoneNumber"></label>
+            </div>
+            <div class="col-5">
+                <input asp-for="Customers.PhoneNumber" class="form-control" />
+            </div>
+            <span asp-validation-for="Customers.PhoneNumber" class="text-danger"></span>
+        </div>
+        <div class="form-group row">
+            <div class="col-2">
+                <label asp-for="Customers.Sex"></label>
+            </div>
+            <div class="col-5">
+                <input asp-for="Customers.Sex" class="form-control" />
+            </div>
+            <span asp-validation-for="Customers.Sex" class="text-danger"></span>
+        </div>
+        <div class="form-group row">
+            <div class="col-2">
+                <label asp-for="Customers.Point"></label>
+            </div>
+            <div class="col-5">
+                <input asp-for="Customers.Point" class="form-control" />
+            </div>
+            <span asp-validation-for="Customers.Point" class="text-danger"></span>
+        </div>
+        <div class="form-group row">
+            <div class="col-2">
+                <label asp-for="Customers.Rate"></label>
+            </div>
+            <div class="col-5">
+                <input asp-for="Customers.Rate" class="form-control" />
+            </div>
+            <span asp-validation-for="Customers.Rate" class="text-danger"></span>
+        </div>
+        <div class="form-group row">
+            <div class="col-2">
+                <label asp-for="Customers.BirthDay"></label>
+            </div>
+            <div class="col-5">
+                <input asp-for="Customers.BirthDay" class="form-control" />
+            </div>
+            <span asp-validation-for="Customers.BirthDay" class="text-danger"></span>
+        </div>
+        <div class="form-group row">
+            <div class="col-2">
+                <label asp-for="Customers.Address"></label>
+            </div>
+            <div class="col-5">
+                <input asp-for="Customers.Address" class="form-control" />
+            </div>
+            <span asp-validation-for="Customers.Address" class="text-danger"></span>
+        </div>
+        <br\>
+            <div class="form-group">
+                <input type="submit" class="btn btn-primary" value="Update" />
+                <a asp-action="Index" class="btn btn-success">Back to List</a>
+            </div>
+    </div>
+</form>
+
+@section Scripts{
+    @{ await Html.RenderPartialAsync("_ValidationScriptsPartial"); }
+}
+

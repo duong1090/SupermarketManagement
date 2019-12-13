@@ -1,0 +1,15 @@
+﻿@model int
+@{
+    ViewData["Title"] = "_TableButtonForReceipt";
+}
+
+    <td style="width:150px">
+        <div class="btn-group" role="group">
+            <a type="button" class="btn btn-success" href="@Url.Action("IndexReceiptDetail/" +Model)">
+                <i class="fas fa-list"></i>
+            </a>
+            <a type="button" class="btn btn-success" href="@Url.Action("CreateReceiptDetail/" +Model)">
+                <i class="fas fa-plus"></i>
+            </a>
+        </div>
+    </td>
